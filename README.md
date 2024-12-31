@@ -24,6 +24,26 @@ Este projeto em Java foi desenvolvido para realizar análises de dados provenien
 - **com.example.repository**: Interfaces para comunicação com o banco de dados.
 - **com.example.service**: Contém a lógica de negócios.
 
+```bash
+src/
+├── main/
+│   ├── java/
+│   │   └── com/
+│   │       └── example/
+│   │           ├── EnemApplication.java
+│   │           ├── controller/
+│   │           │   └── CandidatoController.java
+│   │           ├── model/
+│   │           │   └── Candidato.java
+│   │           ├── repository/
+│   │           │   └── CandidatoRepository.java
+│   │           └── service/
+│   │               └── CandidatoService.java
+│   └── resources/
+│       └── application.properties
+```
+
+
 ```mermaid
 classDiagram
     class EnemApplication {
