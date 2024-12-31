@@ -24,6 +24,62 @@ Este projeto em Java foi desenvolvido para realizar análises de dados provenien
 - **com.example.repository**: Interfaces para comunicação com o banco de dados.
 - **com.example.service**: Contém a lógica de negócios.
 
+```mermaid
+classDiagram
+    class EnemApplication {
+        +main(String[] args)
+    }
+
+    class CandidatoController {
+        -CandidatoService candidatoService
+        +buscarPorEscola(String noMunicipioEsc) ResponseEntity<List<Candidato>>
+    }
+
+    class CandidatoService {
+        -CandidatoRepository candidatoRepository
+        +buscarPorEscola(String noMunicipioEsc) List<Candidato>
+    }
+
+    class CandidatoRepository {
+        +findByNomeEscola(String noMunicipioEsc) List<Candidato>
+    }
+
+    class Candidato {
+        +Long nuInscricao
+        +Integer nuAno
+        +Integer tpFaixaEtaria
+        +String tpSexo
+        +Integer tpEstadoCivil
+        +Integer tpCorRaca
+        +Integer tpNacionalidade
+        +String noMunicipioEsc
+        +String sgUfEsc
+        +Integer tpEscola
+        +BigDecimal nuNotaCn
+        +BigDecimal nuNotaCh
+        +BigDecimal nuNotaLc
+        +BigDecimal nuNotaMt
+        +Integer nuNotaRedacao
+        +Integer nuNotaComp1
+        +Integer nuNotaComp2
+        +Integer nuNotaComp3
+        +Integer nuNotaComp4
+        +Integer nuNotaComp5
+        +Integer tpPresencaCn
+        +Integer tpPresencaCh
+        +Integer tpPresencaLc
+        +Integer tpPresencaMt
+        +String noMunicipioProva
+        +String sgUfProva
+    }
+
+    EnemApplication --> CandidatoController
+    CandidatoController --> CandidatoService
+    CandidatoService --> CandidatoRepository
+    CandidatoRepository --> Candidato
+
+```
+
 ## Pré-requisitos
 
 Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
