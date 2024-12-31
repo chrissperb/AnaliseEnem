@@ -11,5 +11,8 @@ public interface CandidatoRepository extends JpaRepository<Candidato, Long> {
     // Métodos básicos de CRUD já vêm implementados
 
     // Busca case-insensitive e com match parcial
-    List<Candidato> findByNomeEscola(String noMunicipioEsc);
+    List<Candidato> findByNoMunicipioEsc(String noMunicipioEsc);
+
+    // Busca por município e tipo de escola
+    List<Candidato> findByNoMunicipioEscAndTpEscola(String noMunicipioEsc, Integer tpEscola);
 }

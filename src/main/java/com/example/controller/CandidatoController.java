@@ -21,7 +21,16 @@ public class CandidatoController {
     @GetMapping("/escola")
     public ResponseEntity<List<Candidato>> buscarPorEscola(
             @RequestParam String noMunicipioEsc) {
-        List<Candidato> candidatos = candidatoService.buscarPorEscola(noMunicipioEsc);
+        List<Candidato> candidatos = candidatoService.buscarPorMunicipio(noMunicipioEsc);
         return ResponseEntity.ok(candidatos);
     }
+
+    @GetMapping("/cidade-tipo-escola")
+    public ResponseEntity<List<Candidato>> buscarPorCidadeETipoEscola(
+            @RequestParam String noMunicipioEsc,
+            @RequestParam Integer tpEscola) {
+        List<Candidato> candidatos = candidatoService.buscarPorCidadeETipoEscola(noMunicipioEsc, tpEscola);
+        return ResponseEntity.ok(candidatos);
+    }
+
 }
