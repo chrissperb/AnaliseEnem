@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.dto.MediaNotasDTO;
 import com.example.model.Candidato;
 import com.example.service.CandidatoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,14 @@ public class CandidatoController {
             @RequestParam Integer tpEscola) {
         List<Candidato> candidatos = candidatoService.buscarPorCidadeETipoEscola(noMunicipioEsc, tpEscola);
         return ResponseEntity.ok(candidatos);
+    }
+
+    @GetMapping("/media-notas")
+    public ResponseEntity<MediaNotasDTO> calcularMediaPorCidadeETipoEscola(
+            @RequestParam String noMunicipioEsc,
+            @RequestParam Integer tpEscola) {
+        MediaNotasDTO mediaNotas = candidatoService.calcularMediaPorCidadeETipoEscola(noMunicipioEsc, tpEscola);
+        return ResponseEntity.ok(mediaNotas);
     }
 
 }
