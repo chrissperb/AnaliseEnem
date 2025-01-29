@@ -29,4 +29,5 @@ public interface CandidatoRepository extends JpaRepository<Candidato, Long> {
             "WHERE c.noMunicipioEsc = :noMunicipioEsc AND c.tpEscola = :tpEscola")
     List<Object[]> calcularMediaPorCidadeETipoEscola(@Param("noMunicipioEsc") String noMunicipioEsc, @Param("tpEscola") Integer tpEscola);
 
+    List<Candidato> findByNuInscricao(Long nuInscricao);
 }

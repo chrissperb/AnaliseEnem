@@ -54,4 +54,18 @@ public class CandidatoService {
         );
     }
 
+    public List<Candidato> pesquisarPorNumeroCandidato(String nuInscricao) {
+        if (nuInscricao == null || nuInscricao.trim().isEmpty()) {
+            throw new IllegalArgumentException("O número do candidato não pode ser vazio");
+        }
+
+        try {
+            Long numeroInscricao = Long.parseLong(nuInscricao.trim());
+            return candidatoRepository.findByNuInscricao(numeroInscricao);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("O número do candidato deve ser um valor numérico válido");
+        }
+    }
+
+
 }

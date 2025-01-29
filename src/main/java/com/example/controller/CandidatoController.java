@@ -42,4 +42,11 @@ public class CandidatoController {
         return ResponseEntity.ok(mediaNotas);
     }
 
+    @GetMapping("/numero-candidato")
+    public ResponseEntity<List<Candidato>> pesquisaPorNumeroCandidato(
+            @RequestParam String nuInscricao) {
+        List<Candidato> candidatos = candidatoService.pesquisarPorNumeroCandidato(nuInscricao);
+        return ResponseEntity.ok(candidatos);
+    }
+
 }
